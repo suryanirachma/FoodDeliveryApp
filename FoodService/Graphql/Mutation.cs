@@ -26,7 +26,7 @@ namespace FoodService.Graphql
             return ret.Entity;
         }
 
-        //[Authorize(Roles = new[] {"Manager" })]
+        [Authorize(Roles = new[] {"Manager" })]
         public async Task<Food> UpdateFoodAsync(
             FoodInput input,
             [Service] FoodDeliveryContext context)
@@ -46,7 +46,7 @@ namespace FoodService.Graphql
             return await Task.FromResult(food);
         }
 
-        //[Authorize(Roles = new[] { "MANAGER" })]
+        [Authorize(Roles = new[] { "MANAGER" })]
         public async Task<Food> DeleteFoodByIdAsync(
             int id,
             [Service] FoodDeliveryContext context)

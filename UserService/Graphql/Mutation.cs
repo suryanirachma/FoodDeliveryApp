@@ -72,7 +72,7 @@ namespace UserService.Graphql
                 var claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.Name, user.Username));
 
-                var userRoles = context.UserRoles.Where(o => o.Id == user.Id).ToList();
+                var userRoles = context.UserRoles.Where(o => o.UserId == user.Id).ToList();
                 foreach (var userRole in userRoles)
                 {
                     var role = context.Roles.Where(o => o.Id == userRole.RoleId).FirstOrDefault();
@@ -150,6 +150,30 @@ namespace UserService.Graphql
             }
 
             return await Task.FromResult(user);
+        }
+
+        [Authorize]
+
+        public async Task<Profile> AddProfileAsync(
+
+            ProfileInput input,
+
+            [Service] FoodDeliveryContext context)
+
+        {
+            var profile = new Profile
+
+            {
+                UserId = input.UserId,
+                Name = input.Name,
+                Address = input.Address,
+                City = input.City,
+                Phone = input.Phone
+            };
+
+            var ret = context.Profiles.Add(profile);
+            await context.SaveChangesAsync();
+            return ret.Entity;
         }
 
 

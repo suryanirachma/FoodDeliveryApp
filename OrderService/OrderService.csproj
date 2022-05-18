@@ -22,4 +22,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\FoodDeliveryDomain\FoodDeliveryDomain.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Graphql\" />
+	</ItemGroup>
 </Project>
