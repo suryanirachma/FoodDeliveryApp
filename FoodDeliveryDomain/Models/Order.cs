@@ -13,6 +13,7 @@ namespace FoodDeliveryDomain.Models
         public int Id { get; set; }
         public string Code { get; set; } = null!;
         public int UserId { get; set; }
+        public int CourierId { get; set; }
 
         public virtual User User { get; set; } = null!;
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
