@@ -34,5 +34,13 @@ namespace UserService.Graphql
             }
             return new List<Profile>().AsQueryable();
         }
+
+        [Authorize] // dapat diakses kalau sudah login
+        public IQueryable<Courier> GetCouriers([Service] FoodDeliveryContext context) =>
+            context.Couriers.Select(p => new Courier()
+            {
+                CourierName = p.CourierName,
+                PhoneNumber = p.PhoneNumber
+            });
     }
 }
