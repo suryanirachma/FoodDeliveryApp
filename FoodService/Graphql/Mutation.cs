@@ -46,7 +46,7 @@ namespace FoodService.Graphql
             return await Task.FromResult(food);
         }
 
-        [Authorize(Roles = new[] { "MANAGER" })]
+        [Authorize(Roles = new[] { "Manager" })]
         public async Task<Food> DeleteFoodByIdAsync(
             int id,
             [Service] FoodDeliveryContext context)

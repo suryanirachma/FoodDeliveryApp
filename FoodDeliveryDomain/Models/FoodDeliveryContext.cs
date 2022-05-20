@@ -16,7 +16,7 @@ namespace FoodDeliveryDomain.Models
         {
         }
 
-        public virtual DbSet<Courier> Couriers { get; set; } = null!;
+        public virtual DbSet<CourierProfile> CourierProfiles { get; set; } = null!;
         public virtual DbSet<Food> Foods { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
         public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
@@ -36,9 +36,9 @@ namespace FoodDeliveryDomain.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Courier>(entity =>
+            modelBuilder.Entity<CourierProfile>(entity =>
             {
-                entity.ToTable("Courier");
+                entity.ToTable("CourierProfile");
 
                 entity.Property(e => e.CourierName).HasMaxLength(50);
 
@@ -59,6 +59,16 @@ namespace FoodDeliveryDomain.Models
                 entity.ToTable("Order");
 
                 entity.Property(e => e.Code).HasMaxLength(50);
+
+                entity.Property(e => e.Latitude).HasMaxLength(200);
+
+                entity.Property(e => e.Longitude).HasMaxLength(200);
+
+                entity.HasOne(d => d.Courier)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CourierId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Order_Courier");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)

@@ -14,7 +14,10 @@ namespace FoodDeliveryDomain.Models
         public string Code { get; set; } = null!;
         public int UserId { get; set; }
         public int CourierId { get; set; }
+        public string Longitude { get; set; } = null!;
+        public string Latitude { get; set; } = null!;
 
+        public virtual CourierProfile Courier { get; set; } = null!;
         public virtual User User { get; set; } = null!;
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

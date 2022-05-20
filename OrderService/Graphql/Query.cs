@@ -12,7 +12,7 @@ namespace OrderService.Graphql
         {
             var userName = claimsPrincipal.Identity.Name;
             // check manager role ?
-            var managerRole = claimsPrincipal.Claims.Where(o => o.Type == ClaimTypes.Role && o.Value == "MANAGER").FirstOrDefault();
+            var managerRole = claimsPrincipal.Claims.Where(o => o.Type == ClaimTypes.Role && o.Value == "Manager").FirstOrDefault();
             var user = context.Users.Where(o => o.Username == userName).FirstOrDefault();
             if (user != null)
             {

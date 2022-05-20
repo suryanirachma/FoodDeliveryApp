@@ -35,12 +35,22 @@ namespace UserService.Graphql
             return new List<Profile>().AsQueryable();
         }
 
+        [Authorize(Roles = new[] { "Manager" })]
+        public IQueryable<User> GetCouriers([Service] FoodDeliveryContext context)
+        {
+            var rolecourier = context.Roles.Where(c => c.Name == "Courier").FirstOrDefault();
+            var couriers = context.Users.Where(c => c.UserRoles.Any(o => o.RoleId == rolecourier.Id));
+            return couriers.AsQueryable();
+        }
+
         [Authorize] // dapat diakses kalau sudah login
-        public IQueryable<Courier> GetCouriers([Service] FoodDeliveryContext context) =>
-            context.Couriers.Select(p => new Courier()
+        public IQueryable<CourierProfile> GetCourierProfiles([Service] FoodDeliveryContext context) =>
+            context.CourierProfiles.Select(p => new CourierProfile()
             {
                 CourierName = p.CourierName,
-                PhoneNumber = p.PhoneNumber
+                PhoneNumber = p.PhoneNumber,
+                Availabality = p.Availabality,
+                UserId = p.UserId
             });
     }
 }
