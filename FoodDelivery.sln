@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\UserService.csproj", "{C1EC455A-185F-4E36-9075-16331E5BE2C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService", "UserService\UserService.csproj", "{C1EC455A-185F-4E36-9075-16331E5BE2C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{ECB3951F-4529-44C8-8450-3C8F2231BB70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService", "OrderService\OrderService.csproj", "{ECB3951F-4529-44C8-8450-3C8F2231BB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodService", "FoodService\FoodService.csproj", "{17EDE44A-863E-43EA-842A-8B7D954E52D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService", "FoodService\FoodService.csproj", "{17EDE44A-863E-43EA-842A-8B7D954E52D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryDomain", "FoodDeliveryDomain\FoodDeliveryDomain.csproj", "{AC6C8DFE-AF22-4AC4-BA3E-080CA78E3A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryDomain", "FoodDeliveryDomain\FoodDeliveryDomain.csproj", "{AC6C8DFE-AF22-4AC4-BA3E-080CA78E3A13}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{83C8E4E9-69D2-4767-BA15-0747CB1EB95E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AC6C8DFE-AF22-4AC4-BA3E-080CA78E3A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC6C8DFE-AF22-4AC4-BA3E-080CA78E3A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC6C8DFE-AF22-4AC4-BA3E-080CA78E3A13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C8E4E9-69D2-4767-BA15-0747CB1EB95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C8E4E9-69D2-4767-BA15-0747CB1EB95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C8E4E9-69D2-4767-BA15-0747CB1EB95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C8E4E9-69D2-4767-BA15-0747CB1EB95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

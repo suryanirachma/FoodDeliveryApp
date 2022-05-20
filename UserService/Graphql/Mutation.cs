@@ -28,7 +28,7 @@ namespace UserService.Graphql
                 Username = input.Username,
                 Password = BCrypt.Net.BCrypt.HashPassword(input.Password) // encrypt password
             };
-            var memberRole = context.Roles.Where(m => m.Name == "Admin").FirstOrDefault();
+            var memberRole = context.Roles.Where(m => m.Name == "Buyer").FirstOrDefault();
             if (memberRole == null)
                 throw new Exception("Invalid Role");
             var userRole = new UserRole

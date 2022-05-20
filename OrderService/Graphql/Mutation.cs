@@ -89,5 +89,49 @@ namespace OrderService.Graphql
 
             return await Task.FromResult(order);
         }
+
+        ////tracking order
+        //[Authorize(Roles = new[] { "Buyer" })]
+        //public async Task<CourierProfile> AddTrackingOrderAsync(
+        //   TrackingInput input,
+        //   [Service] FoodDeliveryContext context)
+        //{ 
+        //    if (CourierProfile.Avalabality = true)
+
+        //    // EF
+        //    var courier = new CourierProfile
+        //    {
+        //        CourierName = input.CourierName,
+        //        PhoneNumber = input.PhoneNumber,
+        //        Availabality = true
+        //    };
+
+        //    var ret = context.CourierProfiles.Add(courier);
+        //    await context.SaveChangesAsync();
+
+        //    return ret.Entity;
+        //}
+
+        //tracking longitude latitude
+        [Authorize(Roles = new[] { "Courier" })]
+        public async Task<Order> AddTrackingAsync(
+            TrackingInput input,
+            [Service] FoodDeliveryContext context)
+        {
+
+            // EF
+            var order = new Order
+            {
+                UserId = input.UserId,
+                CourierId = input.CourierId,
+                Longitude = input.Longitude,
+                Latitude = input.Latitude
+            };
+
+            var ret = context.Orders.Add(order);
+            await context.SaveChangesAsync();
+
+            return ret.Entity;
+        }
     }
 }

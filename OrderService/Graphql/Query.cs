@@ -25,5 +25,9 @@ namespace OrderService.Graphql
 
             return new List<Order>().AsQueryable();
         }
+
+        [Authorize(Roles = new[] { "Courier" })]
+        public IQueryable<Order> GetTracking([Service] FoodDeliveryContext context) =>
+                context.Orders;
     }
 }
